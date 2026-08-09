@@ -1,315 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layla Swimming Academy</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #17324d;
-      background: #f8fcff;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #74d5e8, #8f9ff2);
-      color: white;
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-
-    .language {
-      background: white;
-      color: #315b85;
-      border: none;
-      padding: 9px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .hero {
-      padding: 80px 7%;
-      text-align: center;
-      background: linear-gradient(180deg, #dff8ff, #fff4fb);
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      color: #275d85;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 28px;
-      font-size: 19px;
-      color: #48677f;
-    }
-
-    .button {
-      display: inline-block;
-      background: #f39ab8;
-      color: white;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 65px 7%;
-      text-align: center;
-    }
-
-    section h2 {
-      color: #275d85;
-      font-size: 32px;
-      margin-bottom: 18px;
-    }
-
-    .about {
-      background: white;
-    }
-
-    .about p {
-      max-width: 750px;
-      margin: auto;
-      color: #536d80;
-      font-size: 17px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 30px 22px;
-      border-radius: 22px;
-      box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10);
-    }
-
-    .card h3 {
-      color: #e878a0;
-      margin-bottom: 10px;
-    }
-
-    .booking {
-      background: linear-gradient(135deg, #e6faff, #fff0f7);
-    }
-
-    .booking-options {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 30px 0;
-    }
-
-    .option {
-      background: white;
-      border: 2px solid #9bdde8;
-      border-radius: 18px;
-      padding: 22px 35px;
-      min-width: 210px;
-    }
-
-    .option strong {
-      display: block;
-      font-size: 22px;
-      color: #275d85;
-      margin-bottom: 5px;
-    }
-
-    footer {
-      background: #275d85;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        flex-wrap: wrap;
-      }
-
-      nav {
-        width: 100%;
-        text-align: center;
-      }
-
-      nav a {
-        margin: 0 7px;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; color: #17324d; background: #f8fcff; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #74d5e8, #8f9ff2); color: white; padding: 22px 7%; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-size: 24px; font-weight: bold; }
+    nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    .language { background: white; color: #315b85; border: none; padding: 9px 14px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+    .hero { padding: 80px 7%; text-align: center; background: linear-gradient(180deg, #dff8ff, #fff4fb); }
+    .hero h1 { font-size: 48px; color: #275d85; margin-bottom: 15px; }
+    .hero p { max-width: 700px; margin: 0 auto 28px; font-size: 19px; color: #48677f; }
+    .button { display: inline-block; background: #f39ab8; color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; }
+    section { padding: 65px 7%; text-align: center; }
+    section h2 { color: #275d85; font-size: 32px; margin-bottom: 18px; }
+    .about { background: white; }
+    .about p { max-width: 750px; margin: auto; color: #536d80; font-size: 17px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; margin-top: 30px; }
+    .card { background: white; padding: 30px 22px; border-radius: 22px; box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10); }
+    .card h3 { color: #e878a0; margin-bottom: 10px; }
+    .booking { background: linear-gradient(135deg, #e6faff, #fff0f7); }
+    .booking-options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
+    .option { background: white; border: 2px solid #9bdde8; border-radius: 18px; padding: 22px 35px; min-width: 210px; }
+    .option strong { display: block; font-size: 22px; color: #275d85; margin-bottom: 5px; }
+    footer { background: #275d85; color: white; text-align: center; padding: 25px; }
+    html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
+    html[dir="rtl"] nav a { margin-left: 0; margin-right: 20px; }
+    @media (max-width: 700px) { header { flex-wrap: wrap; } nav { width: 100%; text-align: center; } nav a, html[dir="rtl"] nav a { margin: 0 7px; } .hero h1 { font-size: 36px; } }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="logo">Layla Swimming Academy</div>
+    <nav aria-label="Main navigation">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#booking" data-i18n="nav.booking">Book</a>
+    </nav>
+    <button class="language" type="button" aria-label="Switch language" data-i18n="language.switch">العربية</button>
+  </header>
 
-<header>
-  <div class="logo">Layla Swimming Academy</div>
+  <section class="hero">
+    <h1 data-i18n="hero.title">Swim With Confidence</h1>
+    <p data-i18n="hero.description">Professional swimming coaching for women and children, in a friendly, supportive and welcoming environment.</p>
+    <a class="button" href="#booking" data-i18n="hero.cta">Book a Session</a>
+  </section>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#booking">Book</a>
-  </nav>
+  <section class="about" id="about">
+    <h2 data-i18n="about.title">About Layla Swimming Academy</h2>
+    <p data-i18n="about.description">We are professional, licensed swimming coaches dedicated to helping women and children learn, improve and enjoy swimming with confidence. Our approach combines professional coaching with a safe and encouraging atmosphere for every swimmer.</p>
+  </section>
 
-  <button class="language">العربية</button>
-</header>
-
-<section class="hero">
-  <h1>Swim With Confidence</h1>
-  <p>
-    Professional swimming coaching for women and children,
-    in a friendly, supportive and welcoming environment.
-  </p>
-  <a class="button" href="#booking">Book a Session</a>
-</section>
-
-<section class="about" id="about">
-  <h2>About Layla Swimming Academy</h2>
-  <p>
-    We are professional, licensed swimming coaches dedicated to helping
-    women and children learn, improve and enjoy swimming with confidence.
-    Our approach combines professional coaching with a safe and encouraging
-    atmosphere for every swimmer.
-  </p>
-</section>
-
-<section id="services">
-  <h2>What We Offer</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Children's Swimming</h3>
-      <p>
-        Friendly swimming lessons designed to help children build
-        confidence and develop strong swimming skills.
-      </p>
+  <section id="services">
+    <h2 data-i18n="services.title">What We Offer</h2>
+    <div class="cards">
+      <div class="card"><h3 data-i18n="services.children.title">Children's Swimming</h3><p data-i18n="services.children.description">Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.</p></div>
+      <div class="card"><h3 data-i18n="services.women.title">Women's Swimming</h3><p data-i18n="services.women.description">Professional coaching in a comfortable and supportive environment for women of different swimming levels.</p></div>
+      <div class="card"><h3 data-i18n="services.skills.title">Swimming Skills</h3><p data-i18n="services.skills.description">Improve technique, confidence, water safety and overall swimming ability.</p></div>
+      <div class="card"><h3 data-i18n="services.aqua.title">Aqua Therapy</h3><p data-i18n="services.aqua.description">Aqua therapy services may be available in the future. More details will be announced soon.</p></div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Women's Swimming</h3>
-      <p>
-        Professional coaching in a comfortable and supportive environment
-        for women of different swimming levels.
-      </p>
+  <section class="booking" id="booking">
+    <h2 data-i18n="booking.title">Book a Swimming Session</h2>
+    <p data-i18n="booking.intro">Choose one or two sessions when booking.</p>
+    <div class="booking-options">
+      <div class="option"><strong data-i18n="booking.sessionOne">1 Session</strong><span data-i18n="booking.sixtyMinutes">60 minutes</span></div>
+      <div class="option"><strong data-i18n="booking.sessionTwo">2 Sessions</strong><span data-i18n="booking.oneTwentyMinutes">120 minutes</span></div>
     </div>
+    <a class="button" href="#" data-i18n="booking.cta">Start Booking</a>
+  </section>
 
-    <div class="card">
-      <h3>Swimming Skills</h3>
-      <p>
-        Improve technique, confidence, water safety and overall swimming ability.
-      </p>
-    </div>
+  <footer>© 2026 Layla Swimming Academy</footer>
 
-    <div class="card">
-      <h3>Aqua Therapy</h3>
-      <p>
-        Aqua therapy services may be available in the future.
-        More details will be announced soon.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="booking" id="booking">
-  <h2>Book a Swimming Session</h2>
-
-  <p>Choose one or two sessions when booking.</p>
-
-  <div class="booking-options">
-    <div class="option">
-      <strong>1 Session</strong>
-      60 minutes
-    </div>
-
-    <div class="option">
-      <strong>2 Sessions</strong>
-      120 minutes
-    </div>
-  </div>
-
-  <a class="button" href="#">Start Booking</a>
-</section>
-
-<footer>
-  © 2026 Layla Swimming Academy
-</footer>
-<script>
-const translations = {
-  "About": "من نحن",
-  "Services": "الخدمات",
-  "Book": "الحجز",
-  "العربية": "English",
-  "Swim With Confidence": "اسبح بثقة",
-  "Professional swimming coaching for women and children, in a friendly, supportive and welcoming environment.": "تدريب سباحة احترافي للنساء والأطفال في بيئة ودية وداعمة ومريحة.",
-  "Book a Session": "احجز جلسة",
-  "About Layla Swimming Academy": "عن أكاديمية ليلى للسباحة",
-  "Children's Swimming": "سباحة الأطفال",
-  "Women's Swimming": "سباحة النساء",
-  "Swimming Skills": "مهارات السباحة",
-  "Aqua Therapy": "العلاج المائي",
-  "Book a Swimming Session": "احجز جلسة سباحة",
-  "Choose one or two sessions when booking.": "اختر جلسة واحدة أو جلستين عند الحجز.",
-  "1 Session": "جلسة واحدة",
-  "2 Sessions": "جلستان",
-  "60 minutes": "60 دقيقة",
-  "120 minutes": "120 دقيقة",
-  "Start Booking": "ابدأ الحجز",
-  "© 2026 Layla Swimming Academy": "© 2026 أكاديمية ليلى للسباحة"
-};
-
-let arabic = false;
-
-document.querySelector(".language").addEventListener("click", function () {
-  arabic = !arabic;
-
-  document.querySelectorAll("body *").forEach(element => {
-    if (element.children.length === 0) {
-      const text = element.textContent.trim();
-      if (translations[text]) {
-        element.textContent = arabic ? translations[text] : Object.keys(translations).find(key => translations[key] === text) || text;
+  <script>
+    // Add a data-i18n key to any new visible text, then add English and Arabic here.
+    // Future booking forms can use keys such as booking.dateLabel and booking.coaches.layla.
+    const content = {
+      en: {
+        "nav.about": "About", "nav.services": "Services", "nav.booking": "Book", "language.switch": "العربية",
+        "hero.title": "Swim With Confidence", "hero.description": "Professional swimming coaching for women and children, in a friendly, supportive and welcoming environment.", "hero.cta": "Book a Session",
+        "about.title": "About Layla Swimming Academy", "about.description": "We are professional, licensed swimming coaches dedicated to helping women and children learn, improve and enjoy swimming with confidence. Our approach combines professional coaching with a safe and encouraging atmosphere for every swimmer.",
+        "services.title": "What We Offer", "services.children.title": "Children's Swimming", "services.children.description": "Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.", "services.women.title": "Women's Swimming", "services.women.description": "Professional coaching in a comfortable and supportive environment for women of different swimming levels.", "services.skills.title": "Swimming Skills", "services.skills.description": "Improve technique, confidence, water safety and overall swimming ability.", "services.aqua.title": "Aqua Therapy", "services.aqua.description": "Aqua therapy services may be available in the future. More details will be announced soon.",
+        "booking.title": "Book a Swimming Session", "booking.intro": "Choose one or two sessions when booking.", "booking.sessionOne": "1 Session", "booking.sessionTwo": "2 Sessions", "booking.sixtyMinutes": "60 minutes", "booking.oneTwentyMinutes": "120 minutes", "booking.cta": "Start Booking",
+        "booking.dateLabel": "Preferred date", "booking.timeLabel": "Preferred time", "booking.coachLabel": "Choose a coach", "booking.sessionLabel": "Session type", "booking.availability.available": "Available", "booking.availability.unavailable": "Unavailable", "booking.confirmation": "Your booking request has been received."
+      },
+      ar: {
+        "nav.about": "من نحن", "nav.services": "الخدمات", "nav.booking": "الحجز", "language.switch": "English",
+        "hero.title": "اسبح بثقة", "hero.description": "تدريب سباحة احترافي للنساء والأطفال في بيئة ودية وداعمة ومريحة.", "hero.cta": "احجز جلسة",
+        "about.title": "عن أكاديمية ليلى للسباحة", "about.description": "نحن مدربات سباحة محترفات ومرخصات، نساعد النساء والأطفال على تعلم السباحة وتطويرها والاستمتاع بها بثقة. يجمع أسلوبنا بين التدريب الاحترافي والبيئة الآمنة والمشجعة لكل سبّاح.",
+        "services.title": "ما نقدمه", "services.children.title": "سباحة الأطفال", "services.children.description": "دروس سباحة ودية تساعد الأطفال على بناء الثقة وتطوير مهارات سباحة قوية.", "services.women.title": "سباحة النساء", "services.women.description": "تدريب احترافي في بيئة مريحة وداعمة للنساء بمستويات سباحة مختلفة.", "services.skills.title": "مهارات السباحة", "services.skills.description": "طوّري التقنية والثقة والسلامة في الماء والقدرة العامة على السباحة.", "services.aqua.title": "العلاج المائي", "services.aqua.description": "قد تتوفر خدمات العلاج المائي في المستقبل. سيتم الإعلان عن مزيد من التفاصيل قريبًا.",
+        "booking.title": "احجز جلسة سباحة", "booking.intro": "اختر جلسة واحدة أو جلستين عند الحجز.", "booking.sessionOne": "جلسة واحدة", "booking.sessionTwo": "جلستان", "booking.sixtyMinutes": "60 دقيقة", "booking.oneTwentyMinutes": "120 دقيقة", "booking.cta": "ابدأ الحجز",
+        "booking.dateLabel": "التاريخ المفضل", "booking.timeLabel": "الوقت المفضل", "booking.coachLabel": "اختاري مدربة", "booking.sessionLabel": "نوع الجلسة", "booking.availability.available": "متاح", "booking.availability.unavailable": "غير متاح", "booking.confirmation": "تم استلام طلب الحجز الخاص بك."
       }
-    }
-  });
+    };
 
-  document.documentElement.dir = arabic ? "rtl" : "ltr";
-  document.documentElement.lang = arabic ? "ar" : "en";
-});
-</script>
+    let language = "en";
+    const applyLanguage = () => {
+      const dictionary = content[language];
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (dictionary[key]) element.textContent = dictionary[key];
+      });
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.querySelector(".language").setAttribute("aria-label", language === "ar" ? "Switch to English" : "التبديل إلى العربية");
+    };
+    document.querySelector(".language").addEventListener("click", () => {
+      language = language === "en" ? "ar" : "en";
+      applyLanguage();
+    });
+  </script>
 </body>
 </html>
