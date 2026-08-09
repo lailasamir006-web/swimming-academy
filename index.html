@@ -3,34 +3,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swimming Academy</title>
+  <title>Layla Swimming Academy</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #17324d;
+      background: #f8fcff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #74d5e8, #8f9ff2);
+      color: white;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .language {
+      background: white;
+      color: #315b85;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 80px 7%;
+      text-align: center;
+      background: linear-gradient(180deg, #dff8ff, #fff4fb);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #275d85;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      font-size: 19px;
+      color: #48677f;
+    }
+
+    .button {
+      display: inline-block;
+      background: #f39ab8;
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 65px 7%;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #275d85;
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #536d80;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 22px;
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10);
+    }
+
+    .card h3 {
+      color: #e878a0;
+      margin-bottom: 10px;
+    }
+
+    .booking {
+      background: linear-gradient(135deg, #e6faff, #fff0f7);
+    }
+
+    .booking-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    .option {
+      background: white;
+      border: 2px solid #9bdde8;
+      border-radius: 18px;
+      padding: 22px 35px;
+      min-width: 210px;
+    }
+
+    .option strong {
+      display: block;
+      font-size: 22px;
+      color: #275d85;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #275d85;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>Swimming Academy</h1>
-  <h2>Add Student</h2>
+<header>
+  <div class="logo">Layla Swimming Academy</div>
 
-  <form>
-    <label>Full Name</label><br>
-    <input type="text" name="full_name"><br><br>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Book</a>
+  </nav>
 
-    <label>Date of Birth</label><br>
-    <input type="date" name="date_of_birth"><br><br>
+  <button class="language">العربية</button>
+</header>
 
-    <label>Phone</label><br>
-    <input type="text" name="phone"><br><br>
+<section class="hero">
+  <h1>Swim With Confidence</h1>
+  <p>
+    Professional swimming coaching for women and children,
+    in a friendly, supportive and welcoming environment.
+  </p>
+  <a class="button" href="#booking">Book a Session</a>
+</section>
 
-    <label>Parent Name</label><br>
-    <input type="text" name="parent_name"><br><br>
+<section class="about" id="about">
+  <h2>About Layla Swimming Academy</h2>
+  <p>
+    We are professional, licensed swimming coaches dedicated to helping
+    women and children learn, improve and enjoy swimming with confidence.
+    Our approach combines professional coaching with a safe and encouraging
+    atmosphere for every swimmer.
+  </p>
+</section>
 
-    <label>Level</label><br>
-    <input type="text" name="level"><br><br>
+<section id="services">
+  <h2>What We Offer</h2>
 
-    <label>Duration (minutes)</label><br>
-    <input type="number" name="duration_minutes"><br><br>
+  <div class="cards">
+    <div class="card">
+      <h3>Children's Swimming</h3>
+      <p>
+        Friendly swimming lessons designed to help children build
+        confidence and develop strong swimming skills.
+      </p>
+    </div>
 
-    <button type="submit">Add Student</button>
-  </form>
+    <div class="card">
+      <h3>Women's Swimming</h3>
+      <p>
+        Professional coaching in a comfortable and supportive environment
+        for women of different swimming levels.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Swimming Skills</h3>
+      <p>
+        Improve technique, confidence, water safety and overall swimming ability.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Aqua Therapy</h3>
+      <p>
+        Aqua therapy services may be available in the future.
+        More details will be announced soon.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <h2>Book a Swimming Session</h2>
+
+  <p>Choose one or two sessions when booking.</p>
+
+  <div class="booking-options">
+    <div class="option">
+      <strong>1 Session</strong>
+      60 minutes
+    </div>
+
+    <div class="option">
+      <strong>2 Sessions</strong>
+      120 minutes
+    </div>
+  </div>
+
+  <a class="button" href="#">Start Booking</a>
+</section>
+
+<footer>
+  © 2026 Layla Swimming Academy
+</footer>
 
 </body>
 </html>
