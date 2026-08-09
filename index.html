@@ -24,8 +24,16 @@
     .card h3 { color: #e878a0; margin-bottom: 10px; }
     .booking { background: linear-gradient(135deg, #e6faff, #fff0f7); }
     .booking-options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
-    .option { background: white; border: 2px solid #9bdde8; border-radius: 18px; padding: 22px 35px; min-width: 210px; }
+    .option { background: white; border: 2px solid #9bdde8; border-radius: 18px; padding: 22px 35px; min-width: 210px; color: #17324d; cursor: pointer; font: inherit; transition: transform 0.2s, background 0.2s; }
+    .option:hover, .option.selected { background: #eefbff; transform: translateY(-3px); }
     .option strong { display: block; font-size: 22px; color: #275d85; margin-bottom: 5px; }
+    .booking-form { max-width: 620px; margin: 35px auto 0; padding: 28px; text-align: start; background: white; border-radius: 22px; box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10); }
+    .booking-form h3 { color: #275d85; text-align: center; margin-bottom: 18px; font-size: 24px; }
+    .booking-form label { display: grid; gap: 7px; margin-top: 14px; color: #315b85; font-weight: bold; }
+    .booking-form input, .booking-form select { width: 100%; padding: 12px; color: #17324d; border: 1px solid #9bdde8; border-radius: 10px; background: white; font: inherit; }
+    .availability { margin-top: 18px; padding: 10px 14px; border-radius: 10px; background: #eefbff; color: #275d85; }
+    .booking-form .button { border: 0; cursor: pointer; margin-top: 22px; font: inherit; }
+    .booking-message { max-width: 620px; margin: 20px auto 0; padding: 16px; background: #e7f8ee; color: #21633d; border-radius: 14px; font-weight: bold; }
     footer { background: #275d85; color: white; text-align: center; padding: 25px; }
     html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
     html[dir="rtl"] nav a { margin-left: 0; margin-right: 20px; }
@@ -68,10 +76,40 @@
     <h2 data-i18n="booking.title">Book a Swimming Session</h2>
     <p data-i18n="booking.intro">Choose one or two sessions when booking.</p>
     <div class="booking-options">
-      <div class="option"><strong data-i18n="booking.sessionOne">1 Session</strong><span data-i18n="booking.sixtyMinutes">60 minutes</span></div>
-      <div class="option"><strong data-i18n="booking.sessionTwo">2 Sessions</strong><span data-i18n="booking.oneTwentyMinutes">120 minutes</span></div>
+      <button class="option session-option" type="button" data-session="one"><strong data-i18n="booking.sessionOne">1 Session</strong><span data-i18n="booking.sixtyMinutes">60 minutes</span></button>
+      <button class="option session-option" type="button" data-session="two"><strong data-i18n="booking.sessionTwo">2 Sessions</strong><span data-i18n="booking.oneTwentyMinutes">120 minutes</span></button>
     </div>
-    <a class="button" href="#" data-i18n="booking.cta">Start Booking</a>
+    <button class="button" id="startBooking" type="button" data-i18n="booking.cta">Start Booking</button>
+
+    <div class="booking-form" id="bookingForm" hidden>
+      <h3 data-i18n="booking.form.title">Your booking details</h3>
+      <form id="bookingRequest">
+        <label><span data-i18n="booking.sessionLabel">Session type</span>
+          <select id="session" required>
+            <option value="" data-i18n="booking.chooseSession">Choose a session</option>
+            <option value="one" data-i18n="booking.sessionOne">1 Session</option>
+            <option value="two" data-i18n="booking.sessionTwo">2 Sessions</option>
+          </select>
+        </label>
+        <label><span data-i18n="booking.dateLabel">Preferred date</span><input id="date" type="date" required></label>
+        <label><span data-i18n="booking.timeLabel">Preferred time</span>
+          <select id="time" required>
+            <option value="" data-i18n="booking.chooseTime">Choose a time</option>
+            <option value="morning" data-i18n="booking.morning">Morning</option>
+            <option value="afternoon" data-i18n="booking.afternoon">Afternoon</option>
+            <option value="evening" data-i18n="booking.evening">Evening</option>
+          </select>
+        </label>
+        <label><span data-i18n="booking.coachLabel">Coach</span>
+          <select id="coach">
+            <option value="to-confirm" data-i18n="booking.coachToConfirm">Coach to be confirmed</option>
+          </select>
+        </label>
+        <p class="availability" data-i18n="booking.availability.note">Availability will be confirmed after your request.</p>
+        <button class="button" type="submit" data-i18n="booking.confirmButton">Continue</button>
+      </form>
+    </div>
+    <p class="booking-message" id="bookingMessage" hidden aria-live="polite"></p>
   </section>
 
   <footer>© 2026 Layla Swimming Academy</footer>
@@ -86,7 +124,7 @@
         "about.title": "About Layla Swimming Academy", "about.description": "We are professional, licensed swimming coaches dedicated to helping women and children learn, improve and enjoy swimming with confidence. Our approach combines professional coaching with a safe and encouraging atmosphere for every swimmer.",
         "services.title": "What We Offer", "services.children.title": "Children's Swimming", "services.children.description": "Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.", "services.women.title": "Women's Swimming", "services.women.description": "Professional coaching in a comfortable and supportive environment for women of different swimming levels.", "services.skills.title": "Swimming Skills", "services.skills.description": "Improve technique, confidence, water safety and overall swimming ability.", "services.aqua.title": "Aqua Therapy", "services.aqua.description": "Aqua therapy services may be available in the future. More details will be announced soon.",
         "booking.title": "Book a Swimming Session", "booking.intro": "Choose one or two sessions when booking.", "booking.sessionOne": "1 Session", "booking.sessionTwo": "2 Sessions", "booking.sixtyMinutes": "60 minutes", "booking.oneTwentyMinutes": "120 minutes", "booking.cta": "Start Booking",
-        "booking.dateLabel": "Preferred date", "booking.timeLabel": "Preferred time", "booking.coachLabel": "Choose a coach", "booking.sessionLabel": "Session type", "booking.availability.available": "Available", "booking.availability.unavailable": "Unavailable", "booking.confirmation": "Your booking request has been received."
+        "booking.form.title": "Your booking details", "booking.chooseSession": "Choose a session", "booking.dateLabel": "Preferred date", "booking.timeLabel": "Preferred time", "booking.chooseTime": "Choose a time", "booking.morning": "Morning", "booking.afternoon": "Afternoon", "booking.evening": "Evening", "booking.coachLabel": "Coach", "booking.coachToConfirm": "Coach to be confirmed", "booking.sessionLabel": "Session type", "booking.availability.available": "Available", "booking.availability.unavailable": "Unavailable", "booking.availability.note": "Availability will be confirmed after your request.", "booking.confirmButton": "Continue", "booking.confirmation": "Thank you. Your booking details are ready, and we will contact you to confirm availability."
       },
       ar: {
         "nav.about": "من نحن", "nav.services": "الخدمات", "nav.booking": "الحجز", "language.switch": "English",
@@ -94,7 +132,7 @@
         "about.title": "عن أكاديمية ليلى للسباحة", "about.description": "نحن مدربات سباحة محترفات ومرخصات، نساعد النساء والأطفال على تعلم السباحة وتطويرها والاستمتاع بها بثقة. يجمع أسلوبنا بين التدريب الاحترافي والبيئة الآمنة والمشجعة لكل سبّاح.",
         "services.title": "ما نقدمه", "services.children.title": "سباحة الأطفال", "services.children.description": "دروس سباحة ودية تساعد الأطفال على بناء الثقة وتطوير مهارات سباحة قوية.", "services.women.title": "سباحة النساء", "services.women.description": "تدريب احترافي في بيئة مريحة وداعمة للنساء بمستويات سباحة مختلفة.", "services.skills.title": "مهارات السباحة", "services.skills.description": "طوّري التقنية والثقة والسلامة في الماء والقدرة العامة على السباحة.", "services.aqua.title": "العلاج المائي", "services.aqua.description": "قد تتوفر خدمات العلاج المائي في المستقبل. سيتم الإعلان عن مزيد من التفاصيل قريبًا.",
         "booking.title": "احجز جلسة سباحة", "booking.intro": "اختر جلسة واحدة أو جلستين عند الحجز.", "booking.sessionOne": "جلسة واحدة", "booking.sessionTwo": "جلستان", "booking.sixtyMinutes": "60 دقيقة", "booking.oneTwentyMinutes": "120 دقيقة", "booking.cta": "ابدأ الحجز",
-        "booking.dateLabel": "التاريخ المفضل", "booking.timeLabel": "الوقت المفضل", "booking.coachLabel": "اختاري مدربة", "booking.sessionLabel": "نوع الجلسة", "booking.availability.available": "متاح", "booking.availability.unavailable": "غير متاح", "booking.confirmation": "تم استلام طلب الحجز الخاص بك."
+        "booking.form.title": "تفاصيل الحجز", "booking.chooseSession": "اختر جلسة", "booking.dateLabel": "التاريخ المفضل", "booking.timeLabel": "الوقت المفضل", "booking.chooseTime": "اختر وقتًا", "booking.morning": "صباحًا", "booking.afternoon": "بعد الظهر", "booking.evening": "مساءً", "booking.coachLabel": "المدربة", "booking.coachToConfirm": "سيتم تأكيد المدربة لاحقًا", "booking.sessionLabel": "نوع الجلسة", "booking.availability.available": "متاح", "booking.availability.unavailable": "غير متاح", "booking.availability.note": "سيتم تأكيد التوفر بعد إرسال طلبك.", "booking.confirmButton": "متابعة", "booking.confirmation": "شكرًا لك. أصبحت تفاصيل حجزك جاهزة، وسنتواصل معك لتأكيد التوفر."
       }
     };
 
@@ -112,6 +150,29 @@
     document.querySelector(".language").addEventListener("click", () => {
       language = language === "en" ? "ar" : "en";
       applyLanguage();
+    });
+
+    const bookingForm = document.querySelector("#bookingForm");
+    const sessionSelect = document.querySelector("#session");
+    const bookingMessage = document.querySelector("#bookingMessage");
+    document.querySelector("#startBooking").addEventListener("click", () => {
+      bookingForm.hidden = false;
+      bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    document.querySelectorAll(".session-option").forEach((option) => {
+      option.addEventListener("click", () => {
+        document.querySelectorAll(".session-option").forEach((item) => item.classList.remove("selected"));
+        option.classList.add("selected");
+        sessionSelect.value = option.dataset.session;
+        bookingForm.hidden = false;
+        bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+    document.querySelector("#bookingRequest").addEventListener("submit", (event) => {
+      event.preventDefault();
+      bookingMessage.textContent = content[language]["booking.confirmation"];
+      bookingMessage.hidden = false;
+      bookingMessage.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   </script>
 </body>
