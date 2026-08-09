@@ -23,6 +23,7 @@
     .card { background: white; padding: 30px 22px; border-radius: 22px; box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10); }
     .card h3 { color: #e878a0; margin-bottom: 10px; }
     .booking { background: linear-gradient(135deg, #e6faff, #fff0f7); }
+    .booking-subtitle { color: #275d85; font-size: 22px; margin-top: 30px; }
     .booking-options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
     .option { background: white; border: 2px solid #9bdde8; border-radius: 18px; padding: 22px 35px; min-width: 210px; color: #17324d; cursor: pointer; font: inherit; transition: transform 0.2s, background 0.2s; }
     .option:hover, .option.selected { background: #eefbff; transform: translateY(-3px); }
@@ -33,7 +34,14 @@
     .booking-form input, .booking-form select { width: 100%; padding: 12px; color: #17324d; border: 1px solid #9bdde8; border-radius: 10px; background: white; font: inherit; }
     .availability { margin-top: 18px; padding: 10px 14px; border-radius: 10px; background: #eefbff; color: #275d85; }
     .booking-form .button { border: 0; cursor: pointer; margin-top: 22px; font: inherit; }
+    .booking-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 25px; }
+    .booking-actions .button { border: 0; cursor: pointer; margin: 0; font: inherit; }
+    .payment-button { background: #275d85; }
     .booking-message { max-width: 620px; margin: 20px auto 0; padding: 16px; background: #e7f8ee; color: #21633d; border-radius: 14px; font-weight: bold; }
+    .payment-card { max-width: 620px; margin: 20px auto 0; padding: 28px; background: white; border: 2px solid #9bdde8; border-radius: 22px; box-shadow: 0 8px 25px rgba(40, 90, 120, 0.10); }
+    .payment-card h3 { color: #275d85; margin-bottom: 10px; font-size: 24px; }
+    .payment-card p { margin-top: 10px; }
+    .payment-address { color: #315b85; font-weight: bold; }
     footer { background: #275d85; color: white; text-align: center; padding: 25px; }
     html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
     html[dir="rtl"] nav a { margin-left: 0; margin-right: 20px; }
@@ -68,27 +76,56 @@
       <div class="card"><h3 data-i18n="services.children.title">Children's Swimming</h3><p data-i18n="services.children.description">Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.</p></div>
       <div class="card"><h3 data-i18n="services.women.title">Women's Swimming</h3><p data-i18n="services.women.description">Professional coaching in a comfortable and supportive environment for women of different swimming levels.</p></div>
       <div class="card"><h3 data-i18n="services.skills.title">Swimming Skills</h3><p data-i18n="services.skills.description">Improve technique, confidence, water safety and overall swimming ability.</p></div>
-      <div class="card"><h3 data-i18n="services.aqua.title">Aqua Therapy</h3><p data-i18n="services.aqua.description">Aqua therapy services may be available in the future. More details will be announced soon.</p></div>
+      <div class="card"><h3 data-i18n="services.aqua.title">Aqua Therapy</h3><p data-i18n="services.aqua.description">We provide personalised aqua therapy sessions in a calm, supportive setting. Gentle water-based exercises can help support mobility, flexibility, balance, relaxation and confidence in the water.</p></div>
     </div>
   </section>
 
   <section class="booking" id="booking">
-    <h2 data-i18n="booking.title">Book a Swimming Session</h2>
-    <p data-i18n="booking.intro">Choose one or two sessions when booking.</p>
+    <h2 data-i18n="booking.title">Book a Monthly Swimming Package</h2>
+    <p data-i18n="booking.intro">Choose the service, session style and monthly package that suits you.</p>
     <div class="booking-options">
-      <button class="option session-option" type="button" data-session="one"><strong data-i18n="booking.sessionOne">1 Session</strong><span data-i18n="booking.sixtyMinutes">60 minutes</span></button>
-      <button class="option session-option" type="button" data-session="two"><strong data-i18n="booking.sessionTwo">2 Sessions</strong><span data-i18n="booking.oneTwentyMinutes">120 minutes</span></button>
+      <button class="option package-type" type="button" data-format="group"><strong data-i18n="booking.group.title">Group Sessions</strong><span data-i18n="booking.group.description">Friendly learning in a small, supportive group.</span></button>
+      <button class="option package-type" type="button" data-format="private"><strong data-i18n="booking.private.title">Private Sessions</strong><span data-i18n="booking.private.description">Personalised one-to-one attention.</span></button>
+      <button class="option package-type" type="button" data-format="semi-private"><strong data-i18n="booking.semiPrivate.title">Semi-Private Sessions</strong><span data-i18n="booking.semiPrivate.description">Focused learning in a small shared session.</span></button>
     </div>
-    <button class="button" id="startBooking" type="button" data-i18n="booking.cta">Start Booking</button>
+    <h3 class="booking-subtitle" data-i18n="booking.packageLengthTitle">Choose your monthly package</h3>
+    <div class="booking-options">
+      <button class="option package-length" type="button" data-package="four"><strong data-i18n="booking.fourSessions">4 Sessions</strong><span data-i18n="booking.perMonth">per month</span></button>
+      <button class="option package-length" type="button" data-package="six"><strong data-i18n="booking.sixSessions">6 Sessions</strong><span data-i18n="booking.perMonth">per month</span></button>
+      <button class="option package-length" type="button" data-package="eight"><strong data-i18n="booking.eightSessions">8 Sessions</strong><span data-i18n="booking.perMonth">per month</span></button>
+      <button class="option package-length" type="button" data-package="twelve"><strong data-i18n="booking.twelveSessions">12 Sessions</strong><span data-i18n="booking.perMonth">per month</span></button>
+    </div>
+    <div class="booking-actions">
+      <button class="button" id="startBooking" type="button" data-i18n="booking.cta">Start Booking</button>
+      <a class="button payment-button" href="https://ipn.eg/S/menna.samir1166/instapay/93ybXN" target="_blank" rel="noopener noreferrer" data-i18n="payment.button">Pay with InstaPay</a>
+    </div>
 
     <div class="booking-form" id="bookingForm" hidden>
-      <h3 data-i18n="booking.form.title">Your booking details</h3>
+      <h3 data-i18n="booking.form.title">Your package details</h3>
       <form id="bookingRequest">
-        <label><span data-i18n="booking.sessionLabel">Session type</span>
-          <select id="session" required>
-            <option value="" data-i18n="booking.chooseSession">Choose a session</option>
-            <option value="one" data-i18n="booking.sessionOne">1 Session</option>
-            <option value="two" data-i18n="booking.sessionTwo">2 Sessions</option>
+        <label><span data-i18n="booking.serviceLabel">Service</span>
+          <select id="service" required>
+            <option value="" data-i18n="booking.chooseService">Choose a service</option>
+            <option value="children" data-i18n="booking.serviceChildren">Children's Swimming</option>
+            <option value="women" data-i18n="booking.serviceWomen">Women's Swimming</option>
+            <option value="aqua" data-i18n="booking.serviceAqua">Aqua Therapy</option>
+          </select>
+        </label>
+        <label><span data-i18n="booking.formatLabel">Session style</span>
+          <select id="format" required>
+            <option value="" data-i18n="booking.chooseFormat">Choose a session style</option>
+            <option value="group" data-i18n="booking.group.title">Group Sessions</option>
+            <option value="private" data-i18n="booking.private.title">Private Sessions</option>
+            <option value="semi-private" data-i18n="booking.semiPrivate.title">Semi-Private Sessions</option>
+          </select>
+        </label>
+        <label><span data-i18n="booking.monthlyPackageLabel">Monthly package</span>
+          <select id="monthlyPackage" required>
+            <option value="" data-i18n="booking.choosePackage">Choose a monthly package</option>
+            <option value="four" data-i18n="booking.fourSessions">4 Sessions</option>
+            <option value="six" data-i18n="booking.sixSessions">6 Sessions</option>
+            <option value="eight" data-i18n="booking.eightSessions">8 Sessions</option>
+            <option value="twelve" data-i18n="booking.twelveSessions">12 Sessions</option>
           </select>
         </label>
         <label><span data-i18n="booking.dateLabel">Preferred date</span><input id="date" type="date" required></label>
@@ -110,6 +147,12 @@
       </form>
     </div>
     <p class="booking-message" id="bookingMessage" hidden aria-live="polite"></p>
+    <div class="payment-card" id="paymentCard" hidden>
+      <h3 data-i18n="payment.title">Next step: Pay with InstaPay</h3>
+      <p data-i18n="payment.description">Please confirm the package price and availability with us before making a payment.</p>
+      <p class="payment-address"><span data-i18n="payment.addressLabel">InstaPay address:</span> menna.samir1166@instapay</p>
+      <a class="button" href="https://ipn.eg/S/menna.samir1166/instapay/93ybXN" target="_blank" rel="noopener noreferrer" data-i18n="payment.button">Pay with InstaPay</a>
+    </div>
   </section>
 
   <footer>© 2026 Layla Swimming Academy</footer>
@@ -122,17 +165,19 @@
         "nav.about": "About", "nav.services": "Services", "nav.booking": "Book", "language.switch": "العربية",
         "hero.title": "Swim With Confidence", "hero.description": "Professional swimming coaching for women and children, in a friendly, supportive and welcoming environment.", "hero.cta": "Book a Session",
         "about.title": "About Layla Swimming Academy", "about.description": "We are professional, licensed swimming coaches dedicated to helping women and children learn, improve and enjoy swimming with confidence. Our approach combines professional coaching with a safe and encouraging atmosphere for every swimmer.",
-        "services.title": "What We Offer", "services.children.title": "Children's Swimming", "services.children.description": "Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.", "services.women.title": "Women's Swimming", "services.women.description": "Professional coaching in a comfortable and supportive environment for women of different swimming levels.", "services.skills.title": "Swimming Skills", "services.skills.description": "Improve technique, confidence, water safety and overall swimming ability.", "services.aqua.title": "Aqua Therapy", "services.aqua.description": "Aqua therapy services may be available in the future. More details will be announced soon.",
-        "booking.title": "Book a Swimming Session", "booking.intro": "Choose one or two sessions when booking.", "booking.sessionOne": "1 Session", "booking.sessionTwo": "2 Sessions", "booking.sixtyMinutes": "60 minutes", "booking.oneTwentyMinutes": "120 minutes", "booking.cta": "Start Booking",
-        "booking.form.title": "Your booking details", "booking.chooseSession": "Choose a session", "booking.dateLabel": "Preferred date", "booking.timeLabel": "Preferred time", "booking.chooseTime": "Choose a time", "booking.morning": "Morning", "booking.afternoon": "Afternoon", "booking.evening": "Evening", "booking.coachLabel": "Coach", "booking.coachToConfirm": "Coach to be confirmed", "booking.sessionLabel": "Session type", "booking.availability.available": "Available", "booking.availability.unavailable": "Unavailable", "booking.availability.note": "Availability will be confirmed after your request.", "booking.confirmButton": "Continue", "booking.confirmation": "Thank you. Your booking details are ready, and we will contact you to confirm availability."
+        "services.title": "What We Offer", "services.children.title": "Children's Swimming", "services.children.description": "Friendly swimming lessons designed to help children build confidence and develop strong swimming skills.", "services.women.title": "Women's Swimming", "services.women.description": "Professional coaching in a comfortable and supportive environment for women of different swimming levels.", "services.skills.title": "Swimming Skills", "services.skills.description": "Improve technique, confidence, water safety and overall swimming ability.", "services.aqua.title": "Aqua Therapy", "services.aqua.description": "We provide personalised aqua therapy sessions in a calm, supportive setting. Gentle water-based exercises can help support mobility, flexibility, balance, relaxation and confidence in the water.",
+        "booking.title": "Book a Monthly Swimming Package", "booking.intro": "Choose the service, session style and monthly package that suits you.", "booking.group.title": "Group Sessions", "booking.group.description": "Friendly learning in a small, supportive group.", "booking.private.title": "Private Sessions", "booking.private.description": "Personalised one-to-one attention.", "booking.semiPrivate.title": "Semi-Private Sessions", "booking.semiPrivate.description": "Focused learning in a small shared session.", "booking.packageLengthTitle": "Choose your monthly package", "booking.fourSessions": "4 Sessions", "booking.sixSessions": "6 Sessions", "booking.eightSessions": "8 Sessions", "booking.twelveSessions": "12 Sessions", "booking.perMonth": "per month", "booking.cta": "Start Booking",
+        "booking.form.title": "Your package details", "booking.serviceLabel": "Service", "booking.chooseService": "Choose a service", "booking.serviceChildren": "Children's Swimming", "booking.serviceWomen": "Women's Swimming", "booking.serviceAqua": "Aqua Therapy", "booking.formatLabel": "Session style", "booking.chooseFormat": "Choose a session style", "booking.monthlyPackageLabel": "Monthly package", "booking.choosePackage": "Choose a monthly package", "booking.dateLabel": "Preferred date", "booking.timeLabel": "Preferred time", "booking.chooseTime": "Choose a time", "booking.morning": "Morning", "booking.afternoon": "Afternoon", "booking.evening": "Evening", "booking.coachLabel": "Coach", "booking.coachToConfirm": "Coach to be confirmed", "booking.availability.available": "Available", "booking.availability.unavailable": "Unavailable", "booking.availability.note": "Availability will be confirmed after your request.", "booking.confirmButton": "Continue", "booking.confirmation": "Thank you. Your package request is ready, and we will contact you to confirm availability."
+        ,"payment.title": "Next step: Pay with InstaPay", "payment.description": "Please confirm the package price and availability with us before making a payment.", "payment.addressLabel": "InstaPay address:", "payment.button": "Pay with InstaPay"
       },
       ar: {
         "nav.about": "من نحن", "nav.services": "الخدمات", "nav.booking": "الحجز", "language.switch": "English",
         "hero.title": "اسبح بثقة", "hero.description": "تدريب سباحة احترافي للنساء والأطفال في بيئة ودية وداعمة ومريحة.", "hero.cta": "احجز جلسة",
         "about.title": "عن أكاديمية ليلى للسباحة", "about.description": "نحن مدربات سباحة محترفات ومرخصات، نساعد النساء والأطفال على تعلم السباحة وتطويرها والاستمتاع بها بثقة. يجمع أسلوبنا بين التدريب الاحترافي والبيئة الآمنة والمشجعة لكل سبّاح.",
-        "services.title": "ما نقدمه", "services.children.title": "سباحة الأطفال", "services.children.description": "دروس سباحة ودية تساعد الأطفال على بناء الثقة وتطوير مهارات سباحة قوية.", "services.women.title": "سباحة النساء", "services.women.description": "تدريب احترافي في بيئة مريحة وداعمة للنساء بمستويات سباحة مختلفة.", "services.skills.title": "مهارات السباحة", "services.skills.description": "طوّري التقنية والثقة والسلامة في الماء والقدرة العامة على السباحة.", "services.aqua.title": "العلاج المائي", "services.aqua.description": "قد تتوفر خدمات العلاج المائي في المستقبل. سيتم الإعلان عن مزيد من التفاصيل قريبًا.",
-        "booking.title": "احجز جلسة سباحة", "booking.intro": "اختر جلسة واحدة أو جلستين عند الحجز.", "booking.sessionOne": "جلسة واحدة", "booking.sessionTwo": "جلستان", "booking.sixtyMinutes": "60 دقيقة", "booking.oneTwentyMinutes": "120 دقيقة", "booking.cta": "ابدأ الحجز",
-        "booking.form.title": "تفاصيل الحجز", "booking.chooseSession": "اختر جلسة", "booking.dateLabel": "التاريخ المفضل", "booking.timeLabel": "الوقت المفضل", "booking.chooseTime": "اختر وقتًا", "booking.morning": "صباحًا", "booking.afternoon": "بعد الظهر", "booking.evening": "مساءً", "booking.coachLabel": "المدربة", "booking.coachToConfirm": "سيتم تأكيد المدربة لاحقًا", "booking.sessionLabel": "نوع الجلسة", "booking.availability.available": "متاح", "booking.availability.unavailable": "غير متاح", "booking.availability.note": "سيتم تأكيد التوفر بعد إرسال طلبك.", "booking.confirmButton": "متابعة", "booking.confirmation": "شكرًا لك. أصبحت تفاصيل حجزك جاهزة، وسنتواصل معك لتأكيد التوفر."
+        "services.title": "ما نقدمه", "services.children.title": "سباحة الأطفال", "services.children.description": "دروس سباحة ودية تساعد الأطفال على بناء الثقة وتطوير مهارات سباحة قوية.", "services.women.title": "سباحة النساء", "services.women.description": "تدريب احترافي في بيئة مريحة وداعمة للنساء بمستويات سباحة مختلفة.", "services.skills.title": "مهارات السباحة", "services.skills.description": "طوّري التقنية والثقة والسلامة في الماء والقدرة العامة على السباحة.", "services.aqua.title": "العلاج المائي", "services.aqua.description": "نقدّم جلسات علاج مائي مخصصة في بيئة هادئة وداعمة. تساعد التمارين اللطيفة في الماء على دعم الحركة والمرونة والتوازن والاسترخاء والثقة في الماء.",
+        "booking.title": "احجزي باقة سباحة شهرية", "booking.intro": "اختاري الخدمة ونوع الجلسة والباقـة الشهرية التي تناسبك.", "booking.group.title": "جلسات جماعية", "booking.group.description": "تعلم ممتع وداعم ضمن مجموعة صغيرة.", "booking.private.title": "جلسات خاصة", "booking.private.description": "اهتمام شخصي فردي مخصص لك.", "booking.semiPrivate.title": "جلسات شبه خاصة", "booking.semiPrivate.description": "تعلم مركز في جلسة مشتركة صغيرة.", "booking.packageLengthTitle": "اختاري باقتك الشهرية", "booking.fourSessions": "4 جلسات", "booking.sixSessions": "6 جلسات", "booking.eightSessions": "8 جلسات", "booking.twelveSessions": "12 جلسة", "booking.perMonth": "شهريًا", "booking.cta": "ابدأ الحجز",
+        "booking.form.title": "تفاصيل الباقة", "booking.serviceLabel": "الخدمة", "booking.chooseService": "اختاري الخدمة", "booking.serviceChildren": "سباحة الأطفال", "booking.serviceWomen": "سباحة النساء", "booking.serviceAqua": "العلاج المائي", "booking.formatLabel": "نوع الجلسة", "booking.chooseFormat": "اختاري نوع الجلسة", "booking.monthlyPackageLabel": "الباقة الشهرية", "booking.choosePackage": "اختاري الباقة الشهرية", "booking.dateLabel": "التاريخ المفضل", "booking.timeLabel": "الوقت المفضل", "booking.chooseTime": "اختاري وقتًا", "booking.morning": "صباحًا", "booking.afternoon": "بعد الظهر", "booking.evening": "مساءً", "booking.coachLabel": "المدربة", "booking.coachToConfirm": "سيتم تأكيد المدربة لاحقًا", "booking.availability.available": "متاح", "booking.availability.unavailable": "غير متاح", "booking.availability.note": "سيتم تأكيد التوفر بعد إرسال طلبك.", "booking.confirmButton": "متابعة", "booking.confirmation": "شكرًا لك. أصبح طلب الباقة جاهزًا، وسنتواصل معك لتأكيد التوفر."
+        ,"payment.title": "الخطوة التالية: الدفع عبر إنستاباي", "payment.description": "يرجى تأكيد سعر الباقة والتوفر معنا قبل إجراء الدفع.", "payment.addressLabel": "عنوان إنستاباي:", "payment.button": "ادفع عبر إنستاباي"
       }
     };
 
@@ -153,17 +198,28 @@
     });
 
     const bookingForm = document.querySelector("#bookingForm");
-    const sessionSelect = document.querySelector("#session");
+    const formatSelect = document.querySelector("#format");
+    const monthlyPackageSelect = document.querySelector("#monthlyPackage");
     const bookingMessage = document.querySelector("#bookingMessage");
+    const paymentCard = document.querySelector("#paymentCard");
     document.querySelector("#startBooking").addEventListener("click", () => {
       bookingForm.hidden = false;
       bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    document.querySelectorAll(".session-option").forEach((option) => {
+    document.querySelectorAll(".package-type").forEach((option) => {
       option.addEventListener("click", () => {
-        document.querySelectorAll(".session-option").forEach((item) => item.classList.remove("selected"));
+        document.querySelectorAll(".package-type").forEach((item) => item.classList.remove("selected"));
         option.classList.add("selected");
-        sessionSelect.value = option.dataset.session;
+        formatSelect.value = option.dataset.format;
+        bookingForm.hidden = false;
+        bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+    document.querySelectorAll(".package-length").forEach((option) => {
+      option.addEventListener("click", () => {
+        document.querySelectorAll(".package-length").forEach((item) => item.classList.remove("selected"));
+        option.classList.add("selected");
+        monthlyPackageSelect.value = option.dataset.package;
         bookingForm.hidden = false;
         bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -172,7 +228,8 @@
       event.preventDefault();
       bookingMessage.textContent = content[language]["booking.confirmation"];
       bookingMessage.hidden = false;
-      bookingMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      paymentCard.hidden = false;
+      paymentCard.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   </script>
 </body>
